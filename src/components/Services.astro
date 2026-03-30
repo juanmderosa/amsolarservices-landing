@@ -1,0 +1,88 @@
+---
+const services = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=500&auto=format&fit=crop&q=60", // Worker on panel
+    title: "Tracker Mechanical Services",
+    items: [
+      "Alignment & recalibration",
+      "Mechanical adjustments",
+      "Actuator & motor replacement",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=500&auto=format&fit=crop&q=60", // Drone/Inspection
+    title: "Inspection & QA/QC Support",
+    items: [
+      "Structural & mechanical inspection",
+      "Torque verification",
+      "Drone-assisted inspection",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1660330589257-813305a4a383?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Cleaning
+    title: "Cleaning Operations Support",
+    items: [
+      "Manual & spot cleaning",
+      "Robotic cleaning supervision",
+      "Cleaning logistics planning",
+    ],
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&auto=format&fit=crop&q=60", // Meeting/engineers
+    title: "Field Performance Support",
+    items: [
+      "Underperformance detection",
+      "Soiling analysis support",
+      "Field validation reporting",
+    ],
+  },
+];
+---
+
+<section
+  id="services"
+  class="py-16 bg-background">
+  <div class="px-4 sm:px-8 lg:px-16">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px bg-primary flex-1"></div>
+      <h2
+        class="text-3xl md:text-[36px] font-semibold text-primary text-center shrink-0">
+        Our Services
+      </h2>
+      <div class="h-px bg-primary flex-1"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        services.map((service) => (
+          <div class="bg-white border border-gray-200 shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col hover:shadow-lg transition-shadow duration-300">
+            <div class="h-40 w-full overflow-hidden">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              />
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3 class="text-xl font-semibold text-primary mb-4 pb-2 border-b border-gray-200 leading-tight">
+                {service.title}
+              </h3>
+              <ul class="text-sm text-text-light space-y-2 mt-2 grow">
+                {service.items.map((item) => (
+                  <li class="flex items-start">
+                    <span class="text-primary-light mr-2 text-xs mt-1">●</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

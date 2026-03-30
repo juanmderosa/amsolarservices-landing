@@ -1,0 +1,33 @@
+---
+import WhyUsIcons from "./WhyUsIcons.astro";
+import AboutBlock from "./AboutBlock.astro";
+import ContactData from "./ContactData.astro";
+---
+
+<section
+  id="about"
+  class="bg-background pt-14 pb-0">
+  <!-- Section Title — padded only here -->
+  <div class="px-4 sm:px-8 lg:px-16 mb-12">
+    <div class="flex items-center gap-4">
+      <div class="h-px bg-primary flex-1"></div>
+      <h2
+        class="text-3xl md:text-[36px] font-semibold text-primary text-center shrink-0">
+        Why AM Solar Services?
+      </h2>
+      <div class="h-px bg-primary flex-1"></div>
+    </div>
+  </div>
+
+  <!-- Outer grid: full width, edge-to-edge -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:items-stretch">
+    <!-- Left column: icons + about block fills full height -->
+    <div class="lg:col-span-2 flex flex-col">
+      <WhyUsIcons />
+      <AboutBlock />
+    </div>
+
+    <!-- Right: Contact Form Card -->
+    <ContactData />
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import location from "../assets/svg/location.svg?raw";
+import email from "../assets/svg/email.svg?raw";
+import mobilization from "../assets/svg/mobilization.svg?raw";
+---
+
+<div class="mt-8 pt-6 border-t border-white/20 space-y-3 text-sm text-gray-200">
+  <div class="flex items-center gap-3">
+    <Fragment set:html={location} />
+    <span>Arizona, USA</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <Fragment set:html={email} />
+    <!--     <a
+      href="mailto:info@amsolarservices.com"
+      class="hover:text-white transition-colors"
+      >info@amsolarservices.com</a
+    > -->
+    <span>info@amsolarservices.com</span>
+  </div>
+  <div class="flex items-center gap-3">
+    <Fragment set:html={mobilization} />
+    <span>Available for rapid mobilization</span>
+  </div>
+</div>
