@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { contactSchema } from "../../schemas/contact";
+import MailingService from "../../services/email.services";
 import z from "zod";
 
 export const POST: APIRoute = async ({ request }) => {
@@ -21,14 +22,32 @@ export const POST: APIRoute = async ({ request }) => {
 
     const { name, company, email, message } = result.data;
 
-    // TODO: Integrate with an email provider (e.g. Resend, Sendgrid, Nodemailer)
-    console.log("📧 New contact form submission:", {
-      name,
-      company,
-      email,
-      message,
-      timestamp: new Date().toISOString(),
+    // Send email using Nodemailer
+    const emailSubject = `New Contact Form Submission from ${name}`;
+    const emailHtml = `
+      <div style="font-family: sans-serif; line-height: 1.5; color: #333;">
+        <h2 style="color: #1F3A6D;">New Inquiry Received</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Company:</strong> ${company}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <div style="background-color: #f5f7fa; padding: 15px; border-radius: 5px;">
+          ${message.replace(/\n/g, '<br>')}
+        </div>
+        <hr style="margin-top: 20px; border: 0; border-top: 1px solid #ddd;" />
+        <p style="font-size: 12px; color: #777;">Sent via AM Solar Services Landing Page</p>
+      </div>
+    `;
+
+    const mailingResult = await MailingService.sendMail({
+      to: import.meta.env.MAILING_TO || import.meta.env.MAILING_USER,
+      subject: emailSubject,
+      html: emailHtml,
     });
+
+    if (!mailingResult.success) {
+      throw new Error("Failed to send email");
+    }
 
     return new Response(
       JSON.stringify({
