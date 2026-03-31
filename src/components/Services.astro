@@ -1,8 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import trackerImg from "@assets/Tracker Mechanical Services.png";
+import inspectionImg from "@assets/Inspection & QAQC Support.png";
+import cleaningImg from "@assets/Cleaning Operations Support.jpg";
+import fieldImg from "@assets/Field Diagnostics & Troubleshooting.png";
+
 const services = [
   {
-    image:
-      "https://images.unsplash.com/photo-1592833159155-c62df1b65634?w=500&auto=format&fit=crop&q=60", // Worker on panel
+    image: trackerImg,
     title: "Tracker Mechanical Services",
     items: [
       "Alignment & recalibration",
@@ -11,8 +16,7 @@ const services = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=500&auto=format&fit=crop&q=60", // Drone/Inspection
+    image: inspectionImg,
     title: "Inspection & QA/QC Support",
     items: [
       "Structural & mechanical inspection",
@@ -21,8 +25,7 @@ const services = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1660330589257-813305a4a383?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Cleaning
+    image: cleaningImg,
     title: "Cleaning Operations Support",
     items: [
       "Manual & spot cleaning",
@@ -31,13 +34,12 @@ const services = [
     ],
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&auto=format&fit=crop&q=60", // Meeting/engineers
-    title: "Field Performance Support",
+    image: fieldImg,
+    title: "Field Diagnostics & Troubleshooting",
     items: [
-      "Underperformance detection",
-      "Soiling analysis support",
-      "Field validation reporting",
+      "On-site performance issue",
+      "Validation Tracker alignment & mechanical",
+      "ChecksField insspection & reporting support",
     ],
   },
 ];
@@ -61,7 +63,7 @@ const services = [
         services.map((service) => (
           <div class="bg-white border border-gray-200 shadow-[0_4px_12px_rgba(0,0,0,0.05)] flex flex-col hover:shadow-lg transition-shadow duration-300">
             <div class="h-40 w-full overflow-hidden">
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
                 class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"

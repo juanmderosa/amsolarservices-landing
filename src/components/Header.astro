@@ -1,7 +1,7 @@
 ---
-import menu from "../assets/svg/menu.svg?raw";
-import close from "../assets/svg/close.svg?raw";
-import Logo from "../assets/Logo.png";
+import menu from "@assets/svg/menu.svg?raw";
+import close from "@assets/svg/close.svg?raw";
+import Logo from "@assets/Logo.png";
 import Image from "astro/components/Image.astro";
 ---
 
@@ -13,7 +13,7 @@ import Image from "astro/components/Image.astro";
           href="/"
           class="flex items-center gap-3">
           <Image
-            class="h-16 lg:h-24 w-auto filter brightness-0 invert"
+            class="h-16 lg:h-40 w-auto filter brightness-0 invert"
             src={Logo}
             alt="AM Solar Services"
           />
@@ -75,32 +75,32 @@ import Image from "astro/components/Image.astro";
 </style>
 
 <script>
-  const toggleBtn = document.getElementById('mobile-toggle');
-  const mobileMenu = document.getElementById('mobileMenu');
+  const toggleBtn = document.getElementById("mobile-toggle");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-  toggleBtn?.addEventListener('click', () => {
-    const isOpen = toggleBtn.classList.toggle('is-open');
-    
+  toggleBtn?.addEventListener("click", () => {
+    const isOpen = toggleBtn.classList.toggle("is-open");
+
     if (mobileMenu) {
       if (isOpen) {
-        mobileMenu.classList.remove('hidden');
-        mobileMenu.classList.add('flex');
-        document.body.style.overflow = 'hidden';
+        mobileMenu.classList.remove("hidden");
+        mobileMenu.classList.add("flex");
+        document.body.style.overflow = "hidden";
       } else {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.classList.remove('flex');
-        document.body.style.overflow = '';
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
+        document.body.style.overflow = "";
       }
     }
   });
 
   // Listener global para cerrar si se hace click en algún link del nav mobile
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggleBtn?.classList.remove('is-open');
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-      document.body.style.overflow = '';
+  mobileMenu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      toggleBtn?.classList.remove("is-open");
+      mobileMenu.classList.add("hidden");
+      mobileMenu.classList.remove("flex");
+      document.body.style.overflow = "";
     });
   });
 </script>

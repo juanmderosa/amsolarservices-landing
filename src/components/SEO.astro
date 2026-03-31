@@ -1,0 +1,106 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: URL | string;
+}
+
+const {
+  title = "AM Solar Services — Reducing Risk. Optimizing Solar Tracker Performance.",
+  description = "Specialized field services for EPCs, asset owners, and O&M providers in utility-scale solar projects. Focused on solar tracker systems and plant performance optimization.",
+  image = "/og-image.png",
+  canonicalURL = Astro.url,
+} = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1"
+/>
+<link
+  rel="icon"
+  type="image/svg+xml"
+  href="/favicon.png"
+/>
+<meta
+  name="generator"
+  content={Astro.generator}
+/>
+
+<!-- Canonical URL -->
+<link
+  rel="canonical"
+  href={canonicalURL}
+/>
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta
+  name="title"
+  content={title}
+/>
+<meta
+  name="description"
+  content={description}
+/>
+
+<!-- Open Graph / Facebook -->
+<meta
+  property="og:type"
+  content="website"
+/>
+<meta
+  property="og:url"
+  content={Astro.url}
+/>
+<meta
+  property="og:title"
+  content={title}
+/>
+<meta
+  property="og:description"
+  content={description}
+/>
+<meta
+  property="og:image"
+  content={new URL(image, Astro.url)}
+/>
+
+<!-- Twitter -->
+<meta
+  property="twitter:card"
+  content="summary_large_image"
+/>
+<meta
+  property="twitter:url"
+  content={Astro.url}
+/>
+<meta
+  property="twitter:title"
+  content={title}
+/>
+<meta
+  property="twitter:description"
+  content={description}
+/>
+<meta
+  property="twitter:image"
+  content={new URL(image, Astro.url)}
+/>
+
+<!-- Additional SEO -->
+<meta
+  name="robots"
+  content="index, follow"
+/>
+<meta
+  name="author"
+  content="AM Solar Services"
+/>
+<meta
+  name="keywords"
+  content="Solar Tracker, EPC, O&M, Utility-Scale Solar, Solar Maintenance, Solar Inspection, QAQC Support, Tracker Mechanical Services"
+/>

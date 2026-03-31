@@ -1,11 +1,18 @@
+---
+import { Image } from "astro:assets";
+import heroImg from "@assets/problemsolution.jpg";
+---
+
 <section
   id="hero"
-  class="relative bg-dark pt-24 pb-32 lg:pt-36 lg:pb-48 overflow-hidden min-h-[500px] flex items-center justify-center">
+  class="relative bg-dark pt-24 pb-48 lg:pt-36 lg:pb-64 overflow-hidden min-h-[500px] flex items-center justify-center">
   <div class="absolute inset-0">
-    <img
-      src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop"
+    <Image
+      src={heroImg}
       alt="Solar Tracker System at Sunset"
       class="w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
     />
     <div
       class="absolute inset-0 bg-linear-to-b from-[rgba(13,25,48,0.6)] to-[rgba(0,0,0,0.4)]">

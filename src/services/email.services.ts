@@ -14,7 +14,7 @@ export default class MailingService {
   private static getTransporter() {
     if (!this.transporter) {
       const port = parseInt(import.meta.env.MAILING_PORT || "587");
-      // Port 465 always requires secure:true; 587 uses STARTTLS (secure:false)
+
       const secure = import.meta.env.MAILING_SECURE === "true" || port === 465;
 
       this.transporter = mailer.createTransport({
@@ -47,7 +47,8 @@ export default class MailingService {
 
     try {
       const info = await client.sendMail({
-        from: from || import.meta.env.MAILING_FROM || import.meta.env.MAILING_USER,
+        from:
+          from || import.meta.env.MAILING_FROM || import.meta.env.MAILING_USER,
         to,
         subject,
         html,

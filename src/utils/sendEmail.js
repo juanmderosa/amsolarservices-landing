@@ -1,4 +1,4 @@
-import { contactSchema } from "../schemas/contact";
+import { contactSchema } from "@schemas/contact";
 
 const form = document.getElementById("contactForm");
 

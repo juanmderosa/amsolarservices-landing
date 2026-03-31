@@ -1,14 +1,14 @@
 ---
 import Image from "astro/components/Image.astro";
-import Logo from "../assets/Logo.png";
+import Logo from "@assets/Logo.png";
 ---
 
-<footer class="bg-dark text-white py-2">
+<footer class="bg-dark text-white py-2 lg:py-0">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3">
         <Image
-          class="h-16 w-auto filter brightness-0 invert"
+          class="h-16 lg:h-24 w-auto filter brightness-0 invert"
           src={Logo}
           alt="AM Solar Services"
         />

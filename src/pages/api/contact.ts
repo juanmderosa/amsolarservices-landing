@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
-import { contactSchema } from "../../schemas/contact";
-import MailingService from "../../services/email.services";
+import { contactSchema } from "@schemas/contact";
+import MailingService from "@services/email.services";
 import z from "zod";
 
 export const POST: APIRoute = async ({ request }) => {
